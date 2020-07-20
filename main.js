@@ -2,7 +2,7 @@ Vue.component('product', {
   props: {
     premium: {
       type: Boolean,
-      required: false
+      required: true
     }
   },
   template: `
