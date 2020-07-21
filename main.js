@@ -1,9 +1,9 @@
-Vue.component('product', {
+Vue.component("product", {
   props: {
     premium: {
       type: Boolean,
-      required: true
-    }
+      required: true,
+    },
   },
   template: `
    <div class="product">
@@ -47,57 +47,57 @@ Vue.component('product', {
    `,
   data() {
     return {
-        product: 'Socks',
-        brand: 'Vue Mastery',
-        selectedVariant: 0,
-        details: ['80% cotton', '20% polyester', 'Gender-neutral'],
-        variants: [
-          {
-            variantId: 2234,
-            variantColor: 'green',
-            variantImage:  './img/vmSocks-green-onWhite.jpg',
-            variantQuantity: 10     
-          },
-          {
-            variantId: 2235,
-            variantColor: 'blue',
-            variantImage: './img/vmSocks-blue-onWhite.jpg',
-            variantQuantity: 0     
-          }
-        ],
-        cart: 0
-    }
+      product: "Socks",
+      brand: "Vue Mastery",
+      selectedVariant: 0,
+      details: ["80% cotton", "20% polyester", "Gender-neutral"],
+      variants: [
+        {
+          variantId: 2234,
+          variantColor: "green",
+          variantImage: "./img/vmSocks-green-onWhite.jpg",
+          variantQuantity: 10,
+        },
+        {
+          variantId: 2235,
+          variantColor: "blue",
+          variantImage: "./img/vmSocks-blue-onWhite.jpg",
+          variantQuantity: 0,
+        },
+      ],
+      cart: 0,
+    };
   },
-    methods: {
-      addToCart: function() {
-          this.cart += 1
-      },
-      updateProduct: function(index) {  
-          this.selectedVariant = index
-      }
+  methods: {
+    addToCart: function () {
+      this.cart += 1;
     },
-    computed: {
-        title() {
-            return this.brand + ' ' + this.product  
-        },
-        image(){
-            return this.variants[this.selectedVariant].variantImage
-        },
-        inStock(){
-            return this.variants[this.selectedVariant].variantQuantity
-        },
-        shipping() {
-          if (this.premium) {
-            return "Free"
-          }
-            return 2.99
-        }
-    }
-})
+    updateProduct: function (index) {
+      this.selectedVariant = index;
+    },
+  },
+  computed: {
+    title() {
+      return this.brand + " " + this.product;
+    },
+    image() {
+      return this.variants[this.selectedVariant].variantImage;
+    },
+    inStock() {
+      return this.variants[this.selectedVariant].variantQuantity;
+    },
+    shipping() {
+      if (this.premium) {
+        return "Free";
+      }
+      return 2.99;
+    },
+  },
+});
 
 var app = new Vue({
-    el: '#app',
-    data: {
-      premium: true
-    }
-})
+  el: "#app",
+  data: {
+    premium: true,
+  },
+});
